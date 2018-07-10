@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class LandmarksController < ApplicationController
-
   get "/landmarks" do
     @landmarks = Landmark.all
     erb :'landmarks/index'
@@ -26,7 +25,7 @@ class LandmarksController < ApplicationController
     erb :'landmarks/edit'
   end
 
-  post '/landmarks/:id' do
+  post "/landmarks/:id" do
     @landmark = Landmark.find(params[:id])
     @landmark.name = params["landmark"]["name"]
     @landmark.year_completed = params["landmark"]["year_completed"]
@@ -35,8 +34,7 @@ class LandmarksController < ApplicationController
   end
 
   post "/landmarks" do
-    Landmark.create(:name => params["landmark"]["name"], :year_completed => params["landmark"]["year_completed"])
-    redirect '/landmarks'
+    Landmark.create(params)
+    redirect "/landmarks"
   end
 end
-
