@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "activerecord", require: "active_record"
+gem "byebug"
 gem "capybara"
 gem "pry"
 gem "rack-test"
